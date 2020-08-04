@@ -9,19 +9,23 @@ import "./components/Todo.css";
 
 const tasks = [
   {
-    task: 'Wake up',
+    name: 'Wake up',
+    id: 1,
     completed: false
   },
   {
-    task: 'Eat',
+    name: 'Eat',
+    id: 2,
     completed: false
   },
   {
-    task: 'Code',
+    name: 'Code',
+    id: 3,
     completed: false
   },
   {
-    task: 'Sleep',
+    name: 'Sleep',
+    id: 4,
     completed: false
   }
 ]
@@ -33,29 +37,29 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: tasks,
+      tasks: tasks
     };
   }
 
   toggleItem = id => {
     this.setState({
-      tasks: this.state.tasks.map(todo => {
-        if (todo.id === id) {
+      tasks: this.state.tasks.map(item => {
+        if (item.id === id) {
           return {
-            ...todo,
-            completed: !todo.completed
+            ...item,
+            completed: !item.completed
           };
         } else {
-          return todo;
+          return item;
         }
       })
     })
   };
 
 
-  addTask = taskName => {
+  addTask = itemName => {
     const newTask = {
-      name: taskName,
+      name: itemName,
       id: new Date(),
       completed: false
     };
