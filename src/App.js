@@ -9,19 +9,19 @@ import "./components/Todo.css";
 
 const tasks = [
   {
-    task: 'Wake up', 
+    task: 'Wake up',
     completed: false
-  }, 
+  },
   {
-    task: 'Eat', 
+    task: 'Eat',
     completed: false
-  }, 
+  },
   {
-    task: 'Code', 
+    task: 'Code',
     completed: false
-  }, 
+  },
   {
-    task: 'Sleep', 
+    task: 'Sleep',
     completed: false
   }
 ]
@@ -35,8 +35,10 @@ class App extends React.Component {
     this.state = {
       tasks: tasks,
     };
+  }
 
-    toggleItem = id => {
+  toggleItem = id => {
+    this.setState({
       tasks: this.state.tasks.map(todo => {
         if (todo.id === id) {
           return {
@@ -47,8 +49,9 @@ class App extends React.Component {
           return todo;
         }
       })
-    };
+    })
   };
+
 
   addTask = taskName => {
     const newTask = {
