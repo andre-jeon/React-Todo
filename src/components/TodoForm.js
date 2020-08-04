@@ -25,10 +25,12 @@ class TodoForm extends React.Component {
         <input
           type="text"
           name="task"
+          placeholder="Enter Task"
           value={this.state.itemText}
           onChange={this.handleChanges}
         />
         <button>Add</button>
+        <button onClick={this.props.handleRemove}>Clear</button>
       </form>
     );
   }

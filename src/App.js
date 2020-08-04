@@ -68,12 +68,24 @@ class App extends React.Component {
     });
   }
 
+  handleRemove = (e) => {
+    e.preventDefault()
+    console.log(this.state.tasks)
+    debugger
+    this.setState({
+      tasks: this.state.tasks.filter((item) => item.completed === false)
+    });
+  }
+
   render() {
     return (
       <div>
         <div>
           <h2>Welcome to your Todo App!</h2>
-          <TodoForm addTask={this.addTask} />
+          <TodoForm
+            addTask={this.addTask}
+            handleRemove={this.handleRemove}
+          />
         </div>
 
         <div>
